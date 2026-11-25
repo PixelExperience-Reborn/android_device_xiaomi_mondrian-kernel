@@ -1,0 +1,21 @@
+name: Verify prebuilt mondrian kernel against its provenance
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Unit tests of the verifier
+        run: python3 -m unittest discover -s tests -v
+      - name: Every prebuilt file matches provenance.json
+        run: python3 tools/verify_prebuilt.py
