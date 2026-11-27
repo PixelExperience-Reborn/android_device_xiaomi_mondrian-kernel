@@ -25,6 +25,10 @@
 | `dtbo.img` | раздел `dtbo` | один оверлей mondrian: msm-id 530/531/540, board-id `0x10008 0x0` |
 | `vendor_ramdisk/*.ko`, `modules.load`, `modules.load.recovery` | ramdisk `vendor_boot` | модули первой стадии и recovery |
 | `vendor_dlkm/*.ko`, `modules.load` | раздел `vendor_dlkm` | остальные модули |
+
+Дерево устройства дополнительно кладёт в ramdisk `vendor_boot` шесть модулей
+аудио/ADSP из `vendor_dlkm` (`q6_pdr` … `adsp_loader`) и грузит их в recovery
+после `modules.load.recovery` (`MONDRIAN_RECOVERY_DLKM` в `BoardConfig.mk`).
 | `provenance.json` | — | паспорт происхождения |
 
 ## Паспорт происхождения (`provenance.json`)

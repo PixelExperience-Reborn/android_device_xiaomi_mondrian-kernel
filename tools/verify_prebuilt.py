@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-NOT_PREBUILT = {"README.md", "provenance.json", ".gitattributes", "Android.bp"}
+NOT_PREBUILT = {"README.md", "provenance.json", ".gitattributes", ".gitignore", "Android.bp"}
 NOT_PREBUILT_DIRS = {".git", ".github", "tools", "tests"}
 REQUIRED = ("Image", "dtbo.img")
 REQUIRED_DIRS = ("dtbs", "vendor_ramdisk", "vendor_dlkm")
